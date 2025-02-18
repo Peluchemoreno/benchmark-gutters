@@ -182,8 +182,9 @@ body {
 }
 
 .header-logo {
-  width: 250px;
+  width: 220px;
   margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .header-container {

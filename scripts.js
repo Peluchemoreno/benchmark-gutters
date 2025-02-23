@@ -498,26 +498,32 @@ function redrawCanvas() {
     if (line.tool === "downspout") {
       ctx.beginPath();
       ctx.moveTo(line.startX, line.startY);
-      ctx.lineTo(
-        line.startX + gridSizeInput.value / 2.75,
-        line.startY + gridSizeInput.value / 2.75
+      // ctx.lineTo(
+      //   line.startX + gridSizeInput.value / 2.75,
+      //   line.startY + gridSizeInput.value / 2.75
+      // );
+      // ctx.moveTo(line.startX, line.startY);
+      // ctx.lineTo(
+      //   line.startX - gridSizeInput.value / 2.75,
+      //   line.startY + gridSizeInput.value / 2.75
+      // );
+      // ctx.moveTo(line.startX, line.startY);
+      // ctx.lineTo(
+      //   line.startX - gridSizeInput.value / 2.75,
+      //   line.startY - gridSizeInput.value / 2.75
+      // );
+      // ctx.moveTo(line.startX, line.startY);
+      // ctx.lineTo(
+      //   line.startX + gridSizeInput.value / 2.75,
+      //   line.startY - gridSizeInput.value / 2.75
+      // );
+      // ctx.setLineDash([]);
+      ctx.fillRect(
+        line.startX - gridSizeInput.value / 4,
+        line.startY - gridSizeInput.value / 4,
+        gridSizeInput.value / 2,
+        gridSizeInput.value / 2
       );
-      ctx.moveTo(line.startX, line.startY);
-      ctx.lineTo(
-        line.startX - gridSizeInput.value / 2.75,
-        line.startY + gridSizeInput.value / 2.75
-      );
-      ctx.moveTo(line.startX, line.startY);
-      ctx.lineTo(
-        line.startX - gridSizeInput.value / 2.75,
-        line.startY - gridSizeInput.value / 2.75
-      );
-      ctx.moveTo(line.startX, line.startY);
-      ctx.lineTo(
-        line.startX + gridSizeInput.value / 2.75,
-        line.startY - gridSizeInput.value / 2.75
-      );
-      ctx.setLineDash([]);
       ctx.stroke();
     } else if (line.tool === "drop") {
       ctx.beginPath();

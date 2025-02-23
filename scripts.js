@@ -248,25 +248,31 @@ function stopDrawing(event) {
 
     if (tool.value === "downspout") {
       ctx.beginPath();
-      ctx.moveTo(startX, startY);
-      ctx.lineTo(
-        startX + gridSizeInput.value / 2.75,
-        startY + gridSizeInput.value / 2.75
-      );
-      ctx.moveTo(startX, startY);
-      ctx.lineTo(
-        startX - gridSizeInput.value / 2.75,
-        startY + gridSizeInput.value / 2.75
-      );
-      ctx.moveTo(startX, startY);
-      ctx.lineTo(
-        startX - gridSizeInput.value / 2.75,
-        startY - gridSizeInput.value / 2.75
-      );
-      ctx.moveTo(startX, startY);
-      ctx.lineTo(
-        startX + gridSizeInput.value / 2.75,
-        startY - gridSizeInput.value / 2.75
+      // ctx.moveTo(startX, startY);
+      // ctx.lineTo(
+      //   startX + gridSizeInput.value / 2.75,
+      //   startY + gridSizeInput.value / 2.75
+      // );
+      // ctx.moveTo(startX, startY);
+      // ctx.lineTo(
+      //   startX - gridSizeInput.value / 2.75,
+      //   startY + gridSizeInput.value / 2.75
+      // );
+      // ctx.moveTo(startX, startY);
+      // ctx.lineTo(
+      //   startX - gridSizeInput.value / 2.75,
+      //   startY - gridSizeInput.value / 2.75
+      // );
+      // ctx.moveTo(startX, startY);
+      // ctx.lineTo(
+      //   startX + gridSizeInput.value / 2.75,
+      //   startY - gridSizeInput.value / 2.75
+      // );
+      ctx.fillRect(
+        startX - gridSizeInput.value / 4,
+        startY - gridSizeInput.value / 4,
+        gridSizeInput.value / 2,
+        gridSizeInput.value / 2
       );
       ctx.stroke();
       // Add line coordinates instead of ImageData

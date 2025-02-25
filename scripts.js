@@ -248,32 +248,27 @@ function stopDrawing(event) {
 
     if (tool.value === "downspout") {
       ctx.beginPath();
-      // ctx.moveTo(startX, startY);
-      // ctx.lineTo(
-      //   startX + gridSizeInput.value / 2.75,
-      //   startY + gridSizeInput.value / 2.75
-      // );
-      // ctx.moveTo(startX, startY);
-      // ctx.lineTo(
-      //   startX - gridSizeInput.value / 2.75,
-      //   startY + gridSizeInput.value / 2.75
-      // );
-      // ctx.moveTo(startX, startY);
-      // ctx.lineTo(
-      //   startX - gridSizeInput.value / 2.75,
-      //   startY - gridSizeInput.value / 2.75
-      // );
-      // ctx.moveTo(startX, startY);
-      // ctx.lineTo(
-      //   startX + gridSizeInput.value / 2.75,
-      //   startY - gridSizeInput.value / 2.75
-      // );
-      ctx.fillRect(
-        startX - gridSizeInput.value / 4,
-        startY - gridSizeInput.value / 4,
-        gridSizeInput.value / 2,
-        gridSizeInput.value / 2
+      ctx.moveTo(startX, startY);
+      ctx.lineTo(
+        startX + gridSizeInput.value / 2.75,
+        startY + gridSizeInput.value / 2.75
       );
+      ctx.moveTo(startX, startY);
+      ctx.lineTo(
+        startX - gridSizeInput.value / 2.75,
+        startY + gridSizeInput.value / 2.75
+      );
+      ctx.moveTo(startX, startY);
+      ctx.lineTo(
+        startX - gridSizeInput.value / 2.75,
+        startY - gridSizeInput.value / 2.75
+      );
+      ctx.moveTo(startX, startY);
+      ctx.lineTo(
+        startX + gridSizeInput.value / 2.75,
+        startY - gridSizeInput.value / 2.75
+      );
+
       ctx.stroke();
       // Add line coordinates instead of ImageData
       lines.push({
@@ -287,7 +282,13 @@ function stopDrawing(event) {
       updateUndoButton();
     } else if (tool.value === "drop") {
       ctx.beginPath();
-      ctx.arc(startX, startY, gridSizeInput.value / 4, 0, 2 * Math.PI);
+      // ctx.arc(startX, startY, gridSizeInput.value / 4, 0, 2 * Math.PI);
+      ctx.fillRect(
+        startX - gridSizeInput.value / 4,
+        startY - gridSizeInput.value / 4,
+        gridSizeInput.value / 2,
+        gridSizeInput.value / 2
+      );
       ctx.stroke();
       // Add line coordinates instead of ImageData
       lines.push({
@@ -498,24 +499,36 @@ function redrawCanvas() {
     if (line.tool === "downspout") {
       ctx.beginPath();
       ctx.moveTo(line.startX, line.startY);
-      // ctx.lineTo(
-      //   line.startX + gridSizeInput.value / 2.75,
-      //   line.startY + gridSizeInput.value / 2.75
-      // );
-      // ctx.moveTo(line.startX, line.startY);
-      // ctx.lineTo(
-      //   line.startX - gridSizeInput.value / 2.75,
-      //   line.startY + gridSizeInput.value / 2.75
-      // );
-      // ctx.moveTo(line.startX, line.startY);
-      // ctx.lineTo(
-      //   line.startX - gridSizeInput.value / 2.75,
-      //   line.startY - gridSizeInput.value / 2.75
-      // );
-      // ctx.moveTo(line.startX, line.startY);
-      // ctx.lineTo(
-      //   line.startX + gridSizeInput.value / 2.75,
-      //   line.startY - gridSizeInput.value / 2.75
+      ctx.lineTo(
+        line.startX + gridSizeInput.value / 2.75,
+        line.startY + gridSizeInput.value / 2.75
+      );
+      ctx.moveTo(line.startX, line.startY);
+      ctx.lineTo(
+        line.startX - gridSizeInput.value / 2.75,
+        line.startY + gridSizeInput.value / 2.75
+      );
+      ctx.moveTo(line.startX, line.startY);
+      ctx.lineTo(
+        line.startX - gridSizeInput.value / 2.75,
+        line.startY - gridSizeInput.value / 2.75
+      );
+      ctx.moveTo(line.startX, line.startY);
+      ctx.lineTo(
+        line.startX + gridSizeInput.value / 2.75,
+        line.startY - gridSizeInput.value / 2.75
+      );
+      ctx.setLineDash([]);
+
+      ctx.stroke();
+    } else if (line.tool === "drop") {
+      ctx.beginPath();
+      // ctx.arc(
+      //   line.startX,
+      //   line.startY,
+      //   gridSizeInput.value / 4,
+      //   0,
+      //   2 * Math.PI
       // );
       // ctx.setLineDash([]);
       ctx.fillRect(
@@ -524,17 +537,6 @@ function redrawCanvas() {
         gridSizeInput.value / 2,
         gridSizeInput.value / 2
       );
-      ctx.stroke();
-    } else if (line.tool === "drop") {
-      ctx.beginPath();
-      ctx.arc(
-        line.startX,
-        line.startY,
-        gridSizeInput.value / 4,
-        0,
-        2 * Math.PI
-      );
-      ctx.setLineDash([]);
       ctx.stroke();
     } else if (line.tool === "valley-shield") {
       ctx.beginPath();
